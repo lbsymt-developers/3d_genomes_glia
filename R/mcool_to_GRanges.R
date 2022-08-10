@@ -1,12 +1,12 @@
 # http://www.bioconductor.org/packages/devel/bioc/vignettes/HiCBricks/inst/doc/IntroductionToHiCBricks.html#25_Exporting_data_from_Brick_objects
 library(HiCBricks)
-mcool_path <- "data_raw/Astro_all_brain.txt_1kb_contacts.mcool"
+mcool_path <- "../tmpTOP/data_raw/Astro_all_brain.txt_1kb_contacts.mcool"
 Brick_mcool_normalisation_exists(mcool = mcool_path,
                                  norm_factor = "Iterative-Correction",
                                  resolution = 10000)
 Brick_list_mcool_normalisations(names.only = TRUE)
 
-out_dir <- file.path("data_tmp", "mcool_to_Brick_test")
+out_dir <- file.path("../tmpTOP/data_tmp", "mcool_to_Brick_test")
 dir.create(out_dir)
 
 Create_many_Bricks_from_mcool(output_directory = out_dir,
@@ -57,7 +57,7 @@ Brick_load_data_from_mcool(Brick = My_BrickContainer,
 
 # export the contact matrix to a a sparse matrix format and save it on a file
 Brick_export_to_sparse(Brick=My_BrickContainer,
-                       out_file="data/brick_export.tsv",
+                       out_file="../tmpTOP/data/brick_export.tsv",
                        remove_file=TRUE,
                        resolution=100000,
                        sep="\t")
