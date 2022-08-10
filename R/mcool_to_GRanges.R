@@ -6,8 +6,14 @@ Brick_mcool_normalisation_exists(mcool = mcool_path,
                                  resolution = 10000)
 Brick_list_mcool_normalisations(names.only = TRUE)
 
-out_dir <- file.path("../tmpTOP/data_tmp", "mcool_to_Brick_test")
-dir.create(out_dir)
+out_dir <- file.path("data_tmp", "mcool_to_Brick_test")
+# dir.create(out_dir)
+Create_many_Bricks_from_mcool(output_directory = out_dir,
+                              file_prefix = "mcool_to_Brick_test",
+                              mcool = mcool_path,
+                              resolution = 1000000,
+                              experiment_name = "Testing mcool creation",
+                              remove_existing = TRUE)
 
 Create_many_Bricks_from_mcool(output_directory = out_dir,
                               file_prefix = "mcool_to_Brick_test",
@@ -16,12 +22,12 @@ Create_many_Bricks_from_mcool(output_directory = out_dir,
                               experiment_name = "Testing mcool creation",
                               remove_existing = TRUE)
 
-# Create_many_Bricks_from_mcool(output_directory = out_dir,
-#                               file_prefix = "mcool_to_Brick_test",
-#                               mcool = mcool_path,
-#                               resolution = 10000000,
-#                               experiment_name = "Testing mcool creation",
-#                               remove_existing = TRUE)
+Create_many_Bricks_from_mcool(output_directory = out_dir,
+                              file_prefix = "mcool_to_Brick_test",
+                              mcool = mcool_path,
+                              resolution = 10000,
+                              experiment_name = "Testing mcool creation",
+                              remove_existing = TRUE)
 
 # ESTE PASO SE PUEDE CAMBIAR DEPENDIENDO DE LA LONGITUD DE SECUENCIA
 # Create_many_Bricks_from_mcool(output_directory = out_dir,
@@ -33,11 +39,13 @@ Create_many_Bricks_from_mcool(output_directory = out_dir,
 
 # Brick_list_mcool_resolutions(mcool = mcool_path)
 # out_dir <- file.path(tempdir(), "mcool_to_Brick_test")
+
+# Se cargan los bricks
 My_BrickContainer <- load_BrickContainer(project_dir = out_dir)
 
 Brick_load_data_from_mcool(Brick = My_BrickContainer,
                            mcool = mcool_path,
-                           resolution = 100000,
+                           resolution = 10000,
                            cooler_read_limit = 10000000,
                            matrix_chunk = 2000,
                            remove_prior = TRUE,
