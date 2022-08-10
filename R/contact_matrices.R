@@ -1,5 +1,8 @@
 # Falta obtener las coordenadas de cada GRanges para la matriz de contactos.
 library(HiCBricks)
+source("R/backend_functions.R")
+source("R/config_functions.R")
+source("R/hdf_functions.R")
 
 out_dir <- file.path("data_tmp", "mcool_to_Brick_test")
 My_BrickContainer <- load_BrickContainer(project_dir = out_dir)
@@ -43,3 +46,35 @@ Brick_fetch_range_index(Brick = My_BrickContainer,
                         chr = "chr3",
                         start = 5000000,
                         end = 10000000, resolution = 100000)
+
+# Retrieving points separated by a certain distance
+Values <- Brick_get_values_by_distance(Brick = My_BrickContainer,
+                                       chr = "chr1",
+                                       distance = 2000,
+                                       resolution = 100000)
+Failsafe_median_log10 <- function(x){
+  x[is.nan(x) | is.infinite(x) | is.na(x)] <- 0
+  return(median(log10(x+1)))
+}
+
+# Retrieving subsets of a matrix
+Sub_matrix <- Brick_get_matrix_within_coords(Brick = My_BrickContainer,
+                                             x_coords="chr2:50000:10000000",
+                                             force = TRUE,
+                                             resolution = 100000,
+                                             y_coords = "chr2:50000:10000000")
+
+Coordinate <- c("chr3:1:100000","chr3:100001:200000")
+Test_Run <- Brick_fetch_row_vector(Brick = My_BrickContainer,
+                                   chr1 = "chr3",
+                                   chr2 = "chr3",
+                                   by = "ranges",
+                                   resolution = 100000,
+                                   vector = Coordinate)
+
+Test_Run <- Brick_fetch_row_vector(Brick = My_BrickContainer,
+                                   chr1 = "chr3",
+                                   chr2 = "chr3",
+                                   by = "position",
+                                   resolution = 100000,
+                                   vector = Coordinate)

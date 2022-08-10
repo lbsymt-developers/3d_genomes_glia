@@ -43,6 +43,11 @@ Create_many_Bricks_from_mcool(output_directory = out_dir,
 # Se cargan los bricks
 My_BrickContainer <- load_BrickContainer(project_dir = out_dir)
 
+# Una vez creado el objeto Brick, rellenaremos el archivo HDF
+# con los valores procedentes de la matriz de interacción Hi-C
+# almacenada en el archivo mcool.
+# Para ello, utilizamos la función Brick_load_data_from_mcool.
+
 Brick_load_data_from_mcool(Brick = My_BrickContainer,
                            mcool = mcool_path,
                            resolution = 10000,
