@@ -63,7 +63,7 @@ Brick_export_to_sparse(Brick=My_BrickContainer,
                        sep="\t")
 
 # create a dataframe containing the bintable
-bintable <- Brick_get_bintable(My_BrickContainer, resolution = 10000000)
+bintable <- Brick_get_bintable(My_BrickContainer, resolution = 100000)
 df <- data.frame(bintable)
 
 require(GenomicRanges)
@@ -100,7 +100,7 @@ Brick_vizart_plot_heatmap(File = file.path(tempdir(),
                           Bricks = list(My_BrickContainer),
                           x_coords = "chr3:1:10000000",
                           y_coords = "chr3:1:10000000",
-                          resolution = 10000,
+                          resolution = 100000,
                           palette = "Reds",
                           width = 10,
                           height = 11,
