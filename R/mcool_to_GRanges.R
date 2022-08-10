@@ -70,9 +70,9 @@ Brick_load_data_from_mcool(Brick = My_BrickContainer,
 
 # export the contact matrix to a a sparse matrix format and save it on a file
 Brick_export_to_sparse(Brick=My_BrickContainer,
-                       out_file="../tmpTOP/data/brick_export.tsv",
+                       out_file="../tmpTOP/data/brick_export_10000.tsv",
                        remove_file=TRUE,
-                       resolution=100000,
+                       resolution=10000,
                        sep="\t")
 
 # create a dataframe containing the bintable
