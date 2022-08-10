@@ -57,7 +57,7 @@ Brick_load_data_from_mcool(Brick = My_BrickContainer,
 
 # export the contact matrix to a a sparse matrix format and save it on a file
 Brick_export_to_sparse(Brick=My_BrickContainer,
-                       out_file="brick_export.tsv",
+                       out_file="data/brick_export.tsv",
                        remove_file=TRUE,
                        resolution=100000,
                        sep="\t")
