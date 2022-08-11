@@ -23,6 +23,7 @@ Básicamente se hace del siguiente modo:
 
 
 
+**Compartimentos** (*compartments*) son el primer nivel de organización que se optiene de los datos de Hi-C. Estos pueden clasificarse en *activos* e *inactivos*. 
 
 # Preguntas:
 
