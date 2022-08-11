@@ -1,0 +1,35 @@
+---
+title: "Notas HiC"
+format: 
+  html:
+    code-fold: true
+editor: visual
+autor: Erick Cuevas-Fernandez
+---
+
+## HiC
+
+Hi-C nos permite examinar la organización del genoma en 3D. Esta técnica viene de **3C** (*Chromosome Conformation Capture*). Con este tipo de metodología se pueden estudiar las interacciones físicas entre dos regiones alejadas en el genoma. 
+
+Básicamente se hace del siguiente modo:
+
+1. Cross-linking del DNA con formaldehido.
+2. Digestión del DNA con enzimas de restricción. 
+3. Re-ligación de los fragmentos de DNA.
+4. Se degrada la proteína. 
+5. Se amplifica y se manda a secuenciar. 
+
+> **4C** permite detectar interacciones por pares entre un punto de anclaje objetivo y potencialmente cualquier otra región genómica, mientras que la **5C** permite sondear múltiples interacciones por pares entre puntos de anclaje prediseñados. 
+
+
+
+
+# Preguntas:
+
+- ¿Cómo se mapean los **"reads quimericos"**? 
+
+> Pipelines: ICE, TADbit, HiCUP, HIPPIE, Juicer, HiC-Pro. 
+> ¿Cuáles son recomendables y por qué?
+
+
+
