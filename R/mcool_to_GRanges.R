@@ -29,6 +29,13 @@ Create_many_Bricks_from_mcool(output_directory = out_dir,
                               experiment_name = "Testing mcool creation",
                               remove_existing = TRUE)
 
+Create_many_Bricks_from_mcool(output_directory = out_dir,
+                              file_prefix = "mcool_to_Brick_test",
+                              mcool = mcool_path,
+                              resolution = 20000000,
+                              experiment_name = "Testing mcool creation",
+                              remove_existing = TRUE)
+
 # ESTE PASO SE PUEDE CAMBIAR DEPENDIENDO DE LA LONGITUD DE SECUENCIA
 # Create_many_Bricks_from_mcool(output_directory = out_dir,
 #                               file_prefix = "mcool_to_Brick_test",
@@ -65,11 +72,19 @@ Brick_load_data_from_mcool(Brick = My_BrickContainer,
 #                            norm_factor = "Iterative-Correction")
 
 # load the Brick Container
-# BrickContainer_dir <- file.path(tempdir(), "mcool_to_Brick_test")
-# My_BrickContainer <- load_BrickContainer(project_dir = BrickContainer_dir)
+BrickContainer_dir <- file.path("data_tmp", "mcool_to_Brick_test")
+My_BrickContainer <- load_BrickContainer(project_dir = BrickContainer_dir)
 
 # export the contact matrix to a a sparse matrix format and save it on a file
-Brick_export_to_sparse(Brick=My_BrickContainer,
+Brick_load_data_from_mcool(Brick = My_BrickContainer,
+                           mcool = mcool_path,
+                           resolution = 20000000,
+                           cooler_read_limit = 10000000,
+                           matrix_chunk = 2000,
+                           remove_prior = TRUE,
+                           norm_factor = "Iterative-Correction")
+
+Brick_export_to_sparse(Brick = My_BrickContainer,
                        out_file="../tmpTOP/data/brick_export_10000.tsv",
                        remove_file=TRUE,
                        resolution=10000,
