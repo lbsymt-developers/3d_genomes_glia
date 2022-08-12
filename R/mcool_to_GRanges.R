@@ -85,7 +85,7 @@ Brick_load_data_from_mcool(Brick = My_BrickContainer,
                            norm_factor = "Iterative-Correction")
 
 Brick_export_to_sparse(Brick = My_BrickContainer,
-                       out_file="../tmpTOP/data/brick_export_10000.tsv",
+                       out_file="../tmpTOP/data/brick_export_10000_2doINTENTO.tsv",
                        remove_file=TRUE,
                        resolution=10000,
                        sep="\t")
