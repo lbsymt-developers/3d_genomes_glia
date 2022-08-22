@@ -91,7 +91,7 @@ Brick_export_to_sparse(Brick = My_BrickContainer,
                        sep="\t")
 
 # create a dataframe containing the bintable
-bintable <- Brick_get_bintable(My_BrickContainer, resolution = 100000)
+bintable <- Brick_get_bintable(My_BrickContainer, resolution = 10000)
 df <- data.frame(bintable)
 
 require(GenomicRanges)
