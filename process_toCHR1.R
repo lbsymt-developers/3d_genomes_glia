@@ -1,6 +1,18 @@
 get_chrCoords <- function(snps){
   suppressMessages(library(HiCBricks))
   suppressMessages(library(GenomicRanges))
+  list.of.packages <- c(
+    "foreach",
+    "doParallel"
+  )
+  for(package.i in list.of.packages){
+    suppressPackageStartupMessages(
+      library(
+        package.i,
+        character.only = TRUE
+      )
+    )
+  }
   out_dir <- file.path("data_tmp", "mcool_to_Brick_test")
   My_BrickContainer <- load_BrickContainer(project_dir = out_dir)
   # mt_contacts <- vroom::vroom("../tmpTOP/data/brick_export_10000_2doINTENTO.tsv")
@@ -58,7 +70,7 @@ get_chrCoords <- function(snps){
 
 snps <- readr::read_csv("../tmpTOP/data/SNPs_differentDataset_uniques.csv")
 prueba_con <- get_chrCoords(snps = snps)
-readr::write_csv(chr1, "../tmpTOP/data/prueba_PROCESAMIENTO_ch2.csv")
+readr::write_csv(prueba_con, "../tmpTOP/data/prueba_PROCESAMIENTO_SNPs.csv")
 
 
 # list.of.packages <- c(
@@ -84,3 +96,7 @@ readr::write_csv(chr1, "../tmpTOP/data/prueba_PROCESAMIENTO_ch2.csv")
 #     )
 #   )
 # }
+
+mt_contacts <- vroom::vroom("../tmpTOP/data/brick_export_10000_2doINTENTO.tsv")
+mt_contacts <- mt_contacts[mt_contacts$chr1==chr,]
+
