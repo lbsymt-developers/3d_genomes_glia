@@ -32,23 +32,25 @@ values <- foreach(i = 1:nrow(snps_contacts),
   a <- mt_contacts[mt_contacts$row_coord==snps_contacts$col[i],]
   b <- a[a$value>= 0.003756,]
   b <- b[-1,]
-  b[which.max(b$value),]
+  b[which.max(b$value), ]$col_coord
   # values <- c(values, b$col_coord = b$value)
   # rows <- c(rows, b$col_coord)
 }
 
 parallel::stopCluster(cl = my.cluster)
 
-snps_contacts$col[1]
-a <- mt_contacts[mt_contacts$row_coord==snps_contacts$col[1],]
-a <- a[-1,]
-summary(a)
+snps_contacts$coord2 <- values
+readr::write_csv(snps_contacts, "../tmpTOP/data/snps_coords.csv")
 
-# Se usa la media de todos los valores de correlación
-b <- a[a$value>= 0.003756,]
-readr::write_csv(mt_contacts, "../tmpTOP/data/SNPs_colrow_value.csv")
-
-snp_row <- vroom::vroom("../tmpTOP/data/SNPs_colrow_value.csv")
+# a <- mt_contacts[mt_contacts$row_coord==snps_contacts$col[1],]
+# a <- a[-1,]
+# summary(a)
+#
+# # Se usa la media de todos los valores de correlación
+# b <- a[a$value>= 0.003756,]
+# readr::write_csv(mt_contacts, "../tmpTOP/data/SNPs_colrow_value.csv")
+#
+# snp_row <- vroom::vroom("../tmpTOP/data/SNPs_colrow_value.csv")
 
 
 
