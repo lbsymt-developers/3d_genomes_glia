@@ -59,22 +59,22 @@ Failsafe_median_log10 <- function(x){
 
 # Retrieving subsets of a matrix
 Sub_matrix <- Brick_get_matrix_within_coords(Brick = My_BrickContainer,
-                                             x_coords="chr2:50000:10000000",
+                                             x_coords="chr1:50000:10000000",
                                              force = TRUE,
                                              resolution = 10000,
                                              y_coords = "chr2:50000:10000000")
 
-Coordinate <- c("chr3:1:100000","chr3:100001:200000")
+Coordinate <- c("chr1:1:100000","chr1:100001:200000")
 Test_Run <- Brick_fetch_row_vector(Brick = My_BrickContainer,
-                                   chr1 = "chr3",
-                                   chr2 = "chr3",
+                                   chr1 = "chr1",
+                                   chr2 = "chr1",
                                    by = "ranges",
                                    resolution = 10000,
                                    vector = Coordinate)
 
 Test_Run <- Brick_fetch_row_vector(Brick = My_BrickContainer,
-                                   chr1 = "chr3",
-                                   chr2 = "chr3",
+                                   chr1 = "chr1",
+                                   chr2 = "chr1",
                                    by = "position",
                                    resolution = 10000,
                                    vector = Coordinate)
