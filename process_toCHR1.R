@@ -24,7 +24,6 @@ get_chrCoords <- function(snps){
 
   chrs <- as.character(unique(paste0("chr",GenomeInfoDb::seqnames(ranges_snps))))
   GenomeInfoDb::seqlevels(ranges_snps) <- chrs
-
   # mt_contacts <- mt_contacts[mt_contacts$chr1==chr,]
   ranges_brick <- Brick_get_ranges(Brick = My_BrickContainer,
                                    rangekey = "Bintable",
@@ -34,7 +33,6 @@ get_chrCoords <- function(snps){
   credcontact <- ranges_brick[S4Vectors::queryHits(olap)]
   mcols(credcontact) <- cbind(mcols(credcontact),
                                mcols(ranges_snps[S4Vectors::subjectHits(olap)]))
-
 
   ranges_df <- data.frame(credcontact)
   ranges_df$seqnames <- as.character(ranges_df$seqnames)
@@ -46,13 +44,11 @@ get_chrCoords <- function(snps){
     n.cores,
     type = "PSOCK"
   )
-
   doParallel::registerDoParallel(cl = my.cluster)
   # foreach::getDoParRegistered()
   # foreach::getDoParWorkers()
   #check cluster definition (optional)
   print(my.cluster)
-
   cols <- foreach(i = 1:nrow(ranges_df),
                   .combine = 'c') %dopar% {
     # print(i)
