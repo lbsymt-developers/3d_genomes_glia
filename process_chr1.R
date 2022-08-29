@@ -17,7 +17,7 @@ for(package.i in list.of.packages){
   )
 }
 parallel::detectCores()
-n.cores <- parallel::detectCores() - 2
+n.cores <- parallel::detectCores() - 3
 #create the cluster
 my.cluster <- parallel::makeCluster(
   n.cores,
@@ -27,12 +27,16 @@ my.cluster <- parallel::makeCluster(
 doParallel::registerDoParallel(cl = my.cluster)
 print(my.cluster)
 # values <- vector()
-values <- foreach(i = 1:nrow(snps_contacts),
+pos <- unique(snps_contacts$col)
+
+values <- foreach(i = 1:length(pos),
                 .combine = 'c') %dopar% {
   a <- mt_contacts[mt_contacts$row_coord==snps_contacts$col[i],]
   b <- a[a$value>= 0.003756,]
   b <- b[-1,]
-  b[which.max(b$value), ]$col_coord
+  nombre <- b$row_coord[1]
+  b <- b[which.max(b$value), ]$col_coord
+  names(b) <- nombre
   # values <- c(values, b$col_coord = b$value)
   # rows <- c(rows, b$col_coord)
 }
