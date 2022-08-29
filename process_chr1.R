@@ -1,4 +1,4 @@
-
+library(dplyr)
 mt_contacts <- vroom::vroom("../tmpTOP/data/brick_export_10000_2doINTENTO.tsv")
 mt_contacts <- na.omit(mt_contacts)
 snps_contacts <- readr::read_csv("../tmpTOP/data/prueba_PROCESAMIENTO_SNPs.csv")
