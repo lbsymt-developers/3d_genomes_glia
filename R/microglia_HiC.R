@@ -4,9 +4,10 @@ Brick_mcool_normalisation_exists(mcool = mcool_path,
                                  norm_factor = "Iterative-Correction",
                                  resolution = 10000)
 
-out_dir <- file.path("data_tmp", "mcool_to_Brick_test")
+out_dir <- file.path("data_tmp", "mcool_to_Brick_microglia")
+dir.create(out_dir)
 Create_many_Bricks_from_mcool(output_directory = out_dir,
-                              file_prefix = "mcool_to_Brick_test",
+                              file_prefix = "mcool_to_Brick_microglia",
                               mcool = mcool_path,
                               resolution = 10000,
                               experiment_name = "Testing mcool creation",
@@ -20,7 +21,7 @@ Brick_load_data_from_mcool(Brick = My_BrickContainer,
                            remove_prior = TRUE,
                            norm_factor = "Iterative-Correction")
 
-BrickContainer_dir <- file.path("data_tmp", "mcool_to_Brick_test")
+BrickContainer_dir <- file.path("data_tmp", "mcool_to_Brick_microglia")
 My_BrickContainer <- load_BrickContainer(project_dir = BrickContainer_dir)
 
 Brick_export_to_sparse(Brick = My_BrickContainer,
