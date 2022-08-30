@@ -66,7 +66,7 @@ get_chrCoords <- function(snps){
 
 snps <- readr::read_csv("../tmpTOP/data/SNPs_differentDataset_uniques.csv")
 prueba_con <- get_chrCoords(snps = snps)
-readr::write_csv(prueba_con, "../tmpTOP/data/prueba_PROCESAMIENTO_SNPs.csv")
+readr::write_csv(prueba_con, "../tmpTOP/data/microglia_PROCESAMIENTO_SNPs.csv")
 
 
 # list.of.packages <- c(

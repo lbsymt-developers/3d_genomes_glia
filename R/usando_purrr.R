@@ -14,4 +14,13 @@ get_cols <- function(row_snp){
 }
 
 preliminar_result <- purrr::map(snps_contacts$col, safely(get_cols))
+select_true <- transpose(preliminar_result)
+results <- select_true[["result"]]
+
+results_df <- do.call(rbind, results)
+
+snps_data <- dplyr::right_join(snps_contacts, results_df,
+                               by = c("col" = "row_coord"))
+snps_data <- snps_data[!duplicated(snps_data$rsID),]
+
 
