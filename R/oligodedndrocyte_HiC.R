@@ -1,7 +1,8 @@
 library(HiCBricks)
 mcool_path <- "../tmpTOP/data_raw/Human_cluster_mcool/ODC_all_brain.txt_1kb_contacts.mcool"
+Brick_list_mcool_normalisations()
 Brick_mcool_normalisation_exists(mcool = mcool_path,
-                                 norm_factor = "Iterative-Correction",
+                                 norm_factor = "VC_SQRT",
                                  resolution = 10000)
 
 out_dir <- file.path("data_tmp", "mcool_to_Brick_ODC")
