@@ -32,11 +32,23 @@ join_files_perChr <- function(chr, cell){
   return(df)
 
 }
+
+chromosomes <- paste0("chr",1:22)
 ###########################
-####### CHROMOSOMA 1 ######
+#######    HiC UNV   ######
 ###########################
 
-chr1_astro <- join_files_perChr(chr = "chr1", cell = "astrocyte")
+astro <- lapply(chromosomes, join_files_perChr, cell = "astrocyte")
+names(astro) <- chromosomes
+save(astro, file = "../Mapping_nonconding/data/HiC_cells/astrocyte.rda")
+
+odc <- lapply(chromosomes, join_files_perChr, cell = "odc")
+names(odc) <- chromosomes
+save(odc, file = "../Mapping_nonconding/data/HiC_cells/oligodendrocyte.rda")
+
+mg <- lapply(chromosomes, join_files_perChr, cell = "mg")
+names(mg) <- chromosomes
+save(mg, file = "../Mapping_nonconding/data/HiC_cells/microglia.rda")
 
 
 
