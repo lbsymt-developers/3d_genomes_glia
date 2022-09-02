@@ -17,7 +17,7 @@ B -- Brick_get_ranges --> E{GRanges}
 ```
 # Conda enviroment
 
-Se creo iun ambiente para trabajar con Python la extracción de las matrices `.cool`.
+Se creo un ambiente para trabajar con Python la extracción de las matrices contenidas en `.mcool`.
 
 1. `conda create -n cooler_data python=3.9 cooler numpy`
 2. `conda env export --file cooler_test.yml`
