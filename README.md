@@ -37,7 +37,7 @@ import cooler
 import pandas as pd
 import os.path
 
-# Cargamos el archivo .cool
+# Cargamos el archivo .mcool
 c = cooler.Cooler('../tmpTOP/data_raw/Human_cluster_mcool/L4_all_brain.txt_1kb_contacts.mcool::resolutions/10000')
 
 # Para balancear los datos
