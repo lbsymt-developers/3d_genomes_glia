@@ -3,7 +3,7 @@ import pandas as pd
 import os.path
 
 # Cargamos el archivo .cool
-c = cooler.Cooler('../tmpTOP/data_raw/Human_cluster_mcool/ODC_all_brain.txt_1kb_contacts.mcool::resolutions/10000')
+c = cooler.Cooler('../tmpTOP/data_raw/Human_cluster_mcool/L4_all_brain.txt_1kb_contacts.mcool::resolutions/10000')
 
 # Para balancear los datos
 #c = cooler.balance_cooler(c)
@@ -15,7 +15,7 @@ chrs = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8","chr9",
 for x in chrs:
              for y in chrs:
                  data = c.matrix(balance=False, as_pixels=True, join=True).fetch(x,y)
-                 paths = '../tmpTOP/cells_HiC/odc/'
+                 paths = '../tmpTOP/cells_HiC/l4/'
                  termination = x+y
                  paths_1 = os.path.join(paths, termination)
                  data.to_csv(paths_1, index = False, header = True)
