@@ -50,6 +50,44 @@ mg <- lapply(chromosomes, join_files_perChr, cell = "mg")
 names(mg) <- chromosomes
 save(mg, file = "../Mapping_nonconding/data/HiC_cells/microglia.rda")
 
+endo <- lapply(chromosomes, join_files_perChr, cell = "endo")
+names(endo) <- chromosomes
+save(endo, file = "../Mapping_nonconding/data/HiC_cells/endothelial.rda")
 
+opc <- lapply(chromosomes, join_files_perChr, cell = "opc")
+names(opc) <- chromosomes
+save(opc, file = "../Mapping_nonconding/data/HiC_cells/OPC.rda")
+
+l2_3 <- lapply(chromosomes, join_files_perChr, cell = "l2_3")
+names(l2_3) <- chromosomes
+save(l2_3, file = "../Mapping_nonconding/data/HiC_cells/L2_3.rda")
+
+l4 <- lapply(chromosomes, join_files_perChr, cell = "l4")
+names(l4) <- chromosomes
+save(l4, file = "../Mapping_nonconding/data/HiC_cells/L4.rda")
+
+l5 <- lapply(chromosomes, join_files_perChr, cell = "l5")
+names(l5) <- chromosomes
+save(l5, file = "../Mapping_nonconding/data/HiC_cells/L5.rda")
+
+l6 <- lapply(chromosomes, join_files_perChr, cell = "l6")
+names(l6) <- chromosomes
+save(l6, file = "../Mapping_nonconding/data/HiC_cells/L6.rda")
+
+ndnf <- lapply(chromosomes, join_files_perChr, cell = "ndnf")
+names(ndnf) <- chromosomes
+save(ndnf, file = "../Mapping_nonconding/data/HiC_cells/Ndnf.rda")
+
+pvalb <- lapply(chromosomes, join_files_perChr, cell = "pvalb")
+names(pvalb) <- chromosomes
+save(pvalb, file = "../Mapping_nonconding/data/HiC_cells/Pvalb.rda")
+
+sst <- lapply(chromosomes, join_files_perChr, cell = "sst")
+names(sst) <- chromosomes
+save(sst, file = "../Mapping_nonconding/data/HiC_cells/Sst.rda")
+
+vip <- lapply(chromosomes, join_files_perChr, cell = "vip")
+names(vip) <- chromosomes
+save(vip, file = "../Mapping_nonconding/data/HiC_cells/Vip.rda")
 
 snps_1 <- snps[snps$seqnames==1,]
