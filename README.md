@@ -26,6 +26,7 @@ Se creo iun ambiente para trabajar con Python la extracción de las matrices `.c
 5. `ipython`
 6. `nvim extraccin_HiC.py`
 7. `python extraccion_HiC.py`
+8. `conda deactivate`
 
 El código generado que se fue modificando para cada tipo celular fue:
 
