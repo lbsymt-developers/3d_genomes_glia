@@ -15,11 +15,12 @@ snps <- snps[order(snps$seqnames),]
 snps$seqnames <- as.factor(snps$seqnames)
 
 join_files_perChr <- function(chr, cell){
+  suppressMessages(library(dplyr))
   selection <- paste0(chr, "chr")
   general_path <- "../tmpTOP/cells_HiC/"
   files_path <- paste0(general_path, cell, "/")
   files_cell <- list.files(files_path)
-  a <- stringr::str_detect(files_cell, "chr1chr")
+  a <- stringr::str_detect(files_cell, selection)
   chr_select <- files_cell[a]
   df <- data.frame()
   suppressMessages(library(dplyr))
