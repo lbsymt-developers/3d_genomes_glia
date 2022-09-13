@@ -19,8 +19,8 @@ join_files_perChr <- function(chr, cell){
   general_path <- "../tmpTOP/cells_HiC/"
   files_path <- paste0(general_path, cell, "/")
   files_cell <- list.files(files_path)
-  a <- stringr::str_detect(files_astro, "chr1chr")
-  chr_select <- files_astro[a]
+  a <- stringr::str_detect(files_cell, "chr1chr")
+  chr_select <- files_cell[a]
   df <- data.frame()
   suppressMessages(library(dplyr))
   for(i in 1:length(chr_select)){
